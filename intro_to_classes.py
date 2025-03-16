@@ -21,13 +21,12 @@ class Dog:
 dog1 = Dog("Spot", 7, "black")
 dog2 = Dog("Jazz", 5, "white")
 
-# This calls the method. Dog must be at the start as we are calling a method
-# from a class and the object gets passed as an argument
-print(Dog.print_details(dog1))
-print(Dog.print_details(dog2))
+# Using a class method on specific instances. Passes the object as the argument
+print(dog1.print_details())
+print(dog2.print_details())
 
 dog1.change_age(17)
 dog2.change_age(9)
 
-print(Dog.print_details(dog1))
-print(Dog.print_details(dog2))
+print(dog1.print_details())
+print(dog2.print_details())

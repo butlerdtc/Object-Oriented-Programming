@@ -1,5 +1,6 @@
 class GSTCases:
-
+    # Static methods are methods that don't interact with a specific object of
+    # a class. E.G it just does something within a class like calculating.
     @staticmethod
     def calc_gst(i):
         return i * 0.15
