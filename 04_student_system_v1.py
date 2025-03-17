@@ -1,6 +1,4 @@
 class Students:
-    student_list = []
-
     def __init__(self, name, age, phone, form, subjects, gender):
         self.name = name
         self.age = age
@@ -46,4 +44,5 @@ def add_students():
 
 
 # Main routine
+student_list = []
 add_students()
