@@ -79,9 +79,12 @@ def print_student_details():
 def select_student_age():
     age_requirement = integer_checker("Please enter the minimum age to search "
                                       "for: ")
+    count = 0
     for student in student_list:
         if student.age >= age_requirement:
+            count += 1
             student.display_info()
+    print(f"There are {count} students at {age_requirement} or older")
 
 
 def count_students(subject_options):
@@ -97,6 +100,23 @@ def count_students(subject_options):
             return count
         else:
             print("Please choose one of the classes")
+
+
+def find_student():
+    while True:
+        student_to_find = input("Enter the student you want to finds name: "
+                                "").title()
+        found = False
+        for student in student_list:
+            if student.name == student_to_find:
+                student.display_info()
+                found = True
+                break
+        if found:
+            break
+        else:
+            print("Student not found in system")
+            break
 
 
 def generate_students():
@@ -126,8 +146,30 @@ available_form_classes = ["BAKER", "MORGAN", "MCNICOL", "GRAHAM", "BELL",
                           "NIMMO", "BARKER"]
 student_list = []
 generate_students()
-# add_students(classes, available_form_classes)
-# print_student_details()
-# select_student_age()
-counted_students = count_students(classes)
-print(counted_students)
+
+new_action = True
+while new_action:
+    print("1. Add a student to the system")
+    print("2. Print all student details")
+    print("3. Print details of all students above a particular age")
+    print("4. Count the number of students in a particular subject")
+    print("5. Print details of a particular student")
+    print("6. Exit")
+
+    choice = input("\nWhat would you like to do? - Enter a number: ")
+    if choice == "1":
+        add_students(classes, available_form_classes)
+    elif choice == "2":
+        print_student_details()
+    elif choice == "3":
+        select_student_age()
+    elif choice == "4":
+        counted_students = count_students(classes)
+        print(counted_students)
+    elif choice == "5":
+        find_student()
+    elif choice == "6":
+        print("Goodbye")
+        new_action = False
+    else:
+        print("\nPlease choose one of the available options\n")
