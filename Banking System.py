@@ -56,10 +56,18 @@ def find_user():
 
     
 def overdrafts():
-    # TO COMPLETE
-    
-    True
-    
+    count_users = 0
+    count_balance = 0
+    for user in userList:
+        if user.balance < 0:
+            count_users += 1
+            count_balance += user.balance
+            print(f"Name: {user.first_name} {user.last_name}")
+    edited_balance = count_balance * -1
+    print(f"Total number of users with negative balances are {count_users}")
+    print(f"Total amount due from these users is ${edited_balance:.2f}")
+
+
 def missing_emails():
     # TO COMPLETE
 
@@ -105,4 +113,5 @@ generate_users()
 #     print()
 # for user in userList:
 #     user.display_info()
-find_user()
+# find_user()
+overdrafts()
