@@ -1,5 +1,6 @@
 class User:
-    def __init__(self, first_name, last_name, gender, street_address, city, email, cc_number, cc_type, balance, account_no):
+    def __init__(self, first_name, last_name, gender, street_address, city,
+                 email, cc_number, cc_type, balance, account_no):
         self.first_name = first_name
         self.last_name = last_name
         self.gender = gender
@@ -53,12 +54,14 @@ def generate_users():
     with open('bankUsers.csv', newline='') as csvfile:
         filereader = csv.reader(csvfile, delimiter=',', quotechar="'")
         for line in filereader:
-            User(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], float(line[8]), line[9])
+            User(line[0], line[1], line[2], line[3], line[4], line[5], line[6],
+                 line[7], float(line[8]), line[9])
 
 
 def find_user():
     while True:
-        user_first = input("Enter the first name of the user to find: ").title()
+        user_first = (input("Enter the first name of the user to find: ").
+                      title())
         user_last = input("Enter the last name of the user to find: ").title()
         user_found = False
         for users in userList:
@@ -134,8 +137,8 @@ def bank_details():
 
     print(f"There are {count} users at this bank")
     print(f"There is a total value of ${total_value}")
-    print(f"User with the highest balance is {highest_user} with a balance of "
-          f"${highest_balance}")
+    print(f"User with the highest balance is {highest_user} with a balance of"
+          f" ${highest_balance}")
     print(f"User with the lowest balance is {lowest_user} with a balance of "
           f"${lowest_balance}")
 
@@ -212,8 +215,8 @@ def transfer():
                       f"${original_balance_from}\nUpdated Account Balance: "
                       f"${user.balance}")
                 print(f"Name: {transfer_first} {transfer_last}\nAccount "
-                      f"Number: {transfer_account}\nOriginal Account Balance: "
-                      f"${original_balance_to}\nUpdated Account Balance: "
+                      f"Number: {transfer_account}\nOriginal Account Balance:"
+                      f" ${original_balance_to}\nUpdated Account Balance: "
                       f"${transfer_user.balance}")
             else:
                 print("Transfer cancelled")
